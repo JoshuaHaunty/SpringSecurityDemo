@@ -1,9 +1,10 @@
-<html lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Joshua Haunty's Login</title>
+    <csrf token-repository-ref="tokenRepository"/>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous">
     <style>
@@ -15,7 +16,8 @@
 </head>
 <body>
 <div class="container">
-    <form class="form-signin" method="post" action="/login">
+<!--    Replace th:action with action="/login" for csrf disabled-->
+    <form class="form-signin" method="post" th:action="@{/login}">
         <h2 class="form-signin-heading">Please login to Joshua Haunty's server</h2>
         <p>
             <label for="username" class="sr-only">Username</label>
@@ -24,8 +26,15 @@
         <p>
             <label for="password" class="sr-only">Password</label>
             <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="">
+<!--        comment out next line for csrf disabled-->
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        </p>
+        <p>
+            Remember me?
+            <input type="checkbox" id="remember-me" name="remember-me" class="form-control">
         </p>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
     </form>
 </div>
-</body></html>
+</body>
+</html>
