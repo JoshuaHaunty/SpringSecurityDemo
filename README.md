@@ -11,7 +11,7 @@ Guava
   
 ## Installation
 
-Visit the [Spring Initializer](https://start.spring.io/) and select Mavent Project, Java 8, and Spring Boot 2.3.4
+Start a new project from version control using IntelliJ or another java IDE and checkout from this repository.
 
 ## Dependencies
 
