@@ -18,7 +18,6 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import java.util.concurrent.TimeUnit;
 
 import static com.example.demo.security.ApplicationUserRole.*;
-import static com.example.demo.security.ApplicationUserPermission.*;
 
 @Configuration
 @EnableWebSecurity
